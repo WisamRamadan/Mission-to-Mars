@@ -18,7 +18,7 @@ def scrape_all():
         "news_paragraph": news_paragraph,
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
-        "hemisphere": hemisphere_data(browser),
+        "hemispheres": hemispheres_data(browser),
         "last_modified": dt.datetime.now()
          
     }
@@ -103,7 +103,7 @@ def mars_facts():
     # Convert dataframe into HTML format, add bootstrap
     return df.to_html(classes="table table-striped")
 # ## Hemisphere Data
-def hemisphere_data(browser):
+def hemispheres_data(browser):
     # # D1: Scrape High-Resolution Mars’ Hemisphere Images and Titles
 
     # ### Hemispheres
@@ -146,13 +146,13 @@ def hemisphere_data(browser):
         
         browser.back()   
     #create dictionary to hold scraping reults
-    hd_urls = [y['hd_url'] for y in hemisphere_image_urls]
-    titles = [sub['title'] for sub in hemisphere_image_urls]
+    #hd_urls = [y['hd_url'] for y in hemisphere_image_urls]
+    #titles = [sub['title'] for sub in hemisphere_image_urls]
 
-    hemispheres = {"title": titles, "img_url": hd_urls}
+    #hemispheres = {"title": titles, "img_url": hd_urls}
     
     # 4. Print the list that holds the dictionary of each image url and title.
-    return hemispheres
+    return hemisphere_image_urls
 
 if __name__ == "__main__":
     
